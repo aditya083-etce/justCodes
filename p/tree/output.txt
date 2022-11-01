@@ -1,0 +1,21 @@
+
+1 
+2 3 
+4 5 6 7 
+
+
+LevelOrder: 1 2 3 4 5 6 7 
+
+PreOrder: 1 2 4 5 3 6 7 
+
+InOrder: 4 2 5 1 6 3 7 
+
+PostOrder: 4 5 2 6 7 3 1 
+
+Iterative PreOrder: 1 2 4 5 3 6 7 
+
+Iterative InOrder: 4 2 5 1 6 3 7 
+
+Iterative PostOrder: 4 5 2 6 7 3 1 
+
+Iterative PostOrder Single Stack: 4 5 2 6 7 3 1 

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "vector": "cpp",
+        "ostream": "cpp",
+        "istream": "cpp"
+    },
+    "cmake.configureOnOpen": false,
+    "C_Cpp.errorSquiggles": "Disabled"
+}

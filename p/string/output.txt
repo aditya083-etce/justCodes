@@ -1,0 +1,2 @@
+LPS OF PATTERN : 0 0 1 2 0 
+Pattern found at index 10
