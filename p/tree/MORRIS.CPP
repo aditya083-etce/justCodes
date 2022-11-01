@@ -1,103 +1,56 @@
-void preorder(TreeNode* root) {
-
-    while(root) {
-
-        // Check the left child of root.
-        if(root->left == NULL) {
-
-            cout << root->data << " ";
-
-            root = root->right;
-        } else {
-
-            // Find the inorder predecessor of the root node.
-            TreeNode* current = root->left;
-
-            // Link may be present for the inorder predecessor.
-            while(current->right and current->right != root) {
-
-                current = current->right;
-            }
-
-            // Check for link.
-            if(!current->right) {
-
-                cout << root->data << " ";
-
-                current->right = root;
-
-                root = root->left;
-            } else {
-
-                current->right = NULL;
-                root = root->right;
-            }
-        }
-    }
-}
-
-
-void Inorder(TreeNode* root) {
-
-    while(root) {
-
-        // Check the left child of root.
-        if(root->left == NULL) {
-
-            cout << root->data << " ";
-
-            root = root->right;
-        } else {
-
-            // Find the inorder predecessor of the root node.
-            TreeNode* current = root->left;
-
-            // Link may be present for the inorder predecessor.
-            while(current->right and current->right != root) {
-
-                current = current->right;
-            }
-
-            // Check for link.
-            if(!current->right) {
-
-                current->right = root;
-
-                root = root->left;
-            } else {
-
-                cout << root->data << " ";
-
-                current->right = NULL;
-
-                root = root->right;
-            }
-        }
-    }
-}
-
-
-void inorder(TreeNode* root)
+vector<int> inorder(TreeNode* root)
 {
-    while(root) {
-        if (root->left == NULL) {
-            cout<<root->data << " ";
-            root = root->right;
-        }else{
-            TreeNode* current =root->left;
-
-            while(current->right and current->right!=root) {
-                current = current->right;
+    TreeNode* curr = root;
+    vector<int> ans;
+    while (curr)
+    {
+        if (curr->left == NULL) {
+            ans.push_back(curr->val);
+            curr = curr->right;
+        } else {
+            TreeNode* temp = curr->left;
+            while(temp->right != NULL and temp->right != curr) {
+                temp = temp->right;
             }
 
-            if (current->right == NULL) {
-                current->right = root;
-                root = root->left;
-            }else{
-                cout<<current->data << " ";
-                current->right = NULL;
-                root = root->right;
+            if(temp->right == NULL) {
+                temp->right = curr;
+                curr = curr->left;
+            } else {
+                temp->right = NULL;
+                ans.push_back(curr->val);
+                curr = curr->right;
             }
         }
     }
+    return ans;
+}
+
+
+vector<int> preorder(TreeNode* root)
+{
+    TreeNode* curr = root;
+    vector<int> ans;
+    while (curr)
+    {
+        if (curr->left == NULL) {
+            ans.push_back(curr->val);
+            curr = curr->right;
+        } else {
+            TreeNode* temp = curr->left;
+            while(temp->right != NULL and temp->right != curr) {
+                temp = temp->right;
+            }
+
+            if(temp->right == NULL) {
+                temp->right = curr;
+                ans.push_back(curr->val);
+                curr = curr->left;
+            } else {
+                temp->right = NULL;
+                curr = curr->right;
+            }
+        }
+    }
+    return ans;
 }
